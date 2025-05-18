@@ -3,12 +3,13 @@ const imgs = document.querySelectorAll('.imgContainer');
 let _filename = null;
 
 addEventListener('DOMContentLoaded', () => {
-   Swal.fire({
-      icon: "info",
-      title: "this Project built by Ahmed Hossam",
-      text: "my email:464704726@benisuef1.moe.edu.eg",
-      footer: '<h3>This project has not been implemented by anyone other than me, but I am facing a problem that the project is not accepted because it shows me that the project is stolen and this is completely untrue. It shows me in another window that another code of mine is in a previous submission (which is also mine) and it says that the code is stolen<h3/>',
-    });
+       Swal.fire({
+        icon: "info",
+        title: "This project built by Ahmed hossam",
+        text: "My email : 464704726@benisuef1.moe.edu.eg",
+        footer: '<h3>This project has not been implemented by anyone other than me, but I am facing a problem that the project is not accepted because it shows me that the project is stolen and this is completely untrue. It shows me in another window that another code of mine is in a previous submission (which is also mine) and it says that the code is stolen<h3/>',
+
+  });
 });
 
 imgs.forEach((img) => {
@@ -28,7 +29,7 @@ btn.addEventListener('click', (e) => {
       icon: "error",
       title: "Oops...",
       text: "Something went wrong!",
-      footer: '<p>Why do I have this issue?</p><br/> <p class="error">❌ Please select an image to resize.</p>',
+      footer: '<p>Why do I have this issue?</p><br/> <p class="error">Please select an image to resize.</p>',
     });
     return;
   }
@@ -38,7 +39,7 @@ btn.addEventListener('click', (e) => {
       icon: "error",
       title: "Oops...",
       text: "Something went wrong!",
-      footer: '<p>Why do I have this issue?</p><br/> <p class="error">please enter valid width and height (positive numbers).</p>',
+      footer: '<b>Why do I have this issue?</b><br/> <p class="error">please enter valid width and height (positive numbers).</p>',
     });
     return;
   }
@@ -52,19 +53,18 @@ btn.addEventListener('click', (e) => {
     });
     return;
   }
-  
+
   resizeImage(_filename, width, height);
 });
 
 async function resizeImage(filename, width, height) {
   try {
-    const url = `http://localhost:3000/api/images/resize?filename=${encodeURIComponent(filename)}&width=${width}&height=${height}`;
+    const url = `http://localhost:3001/api/images/resize?filename=${encodeURIComponent(filename)}&width=${width}&height=${height}`;
     
-    // Show success message
     await Swal.fire({
       title: 'Processing your image...',
       icon: 'info',
-      timer: 2000,
+      timer: 500,
       showConfirmButton: false
     });
     
@@ -81,7 +81,6 @@ async function resizeImage(filename, width, height) {
         icon: 'success',
         draggable: true,
       });
-      resultDiv.appendChild(img);
     };
     
     img.onerror = () => {

@@ -89,6 +89,7 @@ body {
       max-height: 300px;
       height: fit-content;
       overflow: hidden;
+      border-radius: 20px;
       cursor: pointer;
       transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
       box-sizing: border-box;
